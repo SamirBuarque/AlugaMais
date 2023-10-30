@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse('Home')
+    return render(request, 'myapp/home.html')  
 
 def test(request):
     return HttpResponse('pagina teste')
