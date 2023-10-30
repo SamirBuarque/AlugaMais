@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse, HttpResponseForbidden
+
+def test(request):
+    return HttpResponseForbidden('Acesso negado')
+
+def home(request):
+    return HttpResponse("Pagina home em criação :D")
 
 urlpatterns = [
+    path('', home),
     path('admin/', admin.site.urls),
+    path('test/', test)
 ]
