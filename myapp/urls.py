@@ -1,6 +1,8 @@
 from django.urls import path
-from myapp.views import home
+from . import views # . representa a pasta atual
 
 urlpatterns = [
-    path('', home),
+    path('', views.home),
+    path('finalpage/<cargroup>/', views.teste)
+
 ]
