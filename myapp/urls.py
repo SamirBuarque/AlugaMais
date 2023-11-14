@@ -3,6 +3,6 @@ from . import views # . representa a pasta atual
 
 urlpatterns = [
     path('', views.home),
-    path('finalpage/<cargroup>/', views.teste)
+    path('finalpage/<slug:cargroup>/', views.teste)
 
 ]

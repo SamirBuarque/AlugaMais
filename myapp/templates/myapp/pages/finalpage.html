@@ -1,11 +1,60 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina teste</title>
+    <title>Final page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto+Mono&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'myapp/css/finalpage.css' %}">
+
+
 </head>
 <body>
-    <h1>testando um link</h1>
+    {% include 'myapp/partials/header.html'%}
+    
+
+<div id="main-content-container">
+    <div id="content-container">
+        <fieldset id="checkbox">
+            <legend>Proteções do carro</legend>
+            <h4 class="checkbox-title">Mais segurança na sua jornada</h4>
+            <div>
+                <input type="checkbox" name="protecao-carro" id="protecao-carro">
+                <label for="protecao-carro">Proteção do carro R$ 34,95 / dia</label>
+            </div>
+                
+            <div>
+                <input type="checkbox" name="protecao-total-avarias" id="protecao-total-avarias">
+                <label for="protecao-total-avarias">Proteção Total Avarias R$ 38,97 / dia</label>
+                <p class="description-checkbox">
+                    Para você ter a tranquilidade total, vá de Proteção Total Avarias! Com esta proteção adicional a proteção do carro e ao seguro de terceiros quando contratado, você conta com a cobertura do carro, vidros e pneus, e ainda tem 100% de isenção dos custos pré fixados de limite de danos em caso de acidente.
+                </p>
+            </div>
+
+            <div>
+                <input type="checkbox" name="cobertura-terceiros" id="cobertura-terceiros">
+                <label for="cobertura-terceiros">Cobertura para terceiros R$ 17,90 / dia</label>
+            </div>
+
+            <h4 class="checkbox-title">Que tal uma proteção complementar? Selecione uma das opções:</h4>
+
+            
+        </fieldset>
+
+        
+    </div>
+</div>
+
+
+
+
+
 </body>
 </html>
