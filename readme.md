@@ -1,1 +1,1 @@
-ola mundo
+Desenvolvendo com Django um sistema para alugar veículos.
