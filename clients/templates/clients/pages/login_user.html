@@ -1,0 +1,35 @@
+{% extends 'global/home.html' %}
+
+{% block mainContent %}
+
+<!--VERIFICA SE O USUARIO ESTA LOGADO NO /ADMIN DO DJANGO-->
+{% if not user.is_authenticated %}
+    
+    <!--Os únicos métodos HTTP para forms são GET e POST 
+    
+    * No método POST, o navegador agrupa os dados do formulário, codifica-os para transmissão, envia-os ao servidor e então recebe de volta sua resposta;
+
+    * No método GET, o navegador agrupa os dados em uma string e usa isso para compor uma URL. A URL contém o endereço para onde os dados devem ser enviados, bem como as chaves e os valores dos dados. Usar esse método em um formulário seria uma grave falha de segurança, visto que os dados como senha, ficaria visível na URL, histórico de navegador e logs do servidor.
+
+    * DICA.:
+        - Qualquer solicitação que possa ser usada para alterar o estado do sistema, por exemplo, uma solicitação que faça alteração no banco de dados, deve usar o POST.
+        - GET deve ser usado apenas para solicitações que não afetam o estado do sistema.
+    
+    -->
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="container">
+            <div class="mb-3">
+                <input type="text" class="form-control" name="username", placeholder="Username" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" name="password", placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            
+        </div>
+    </form>
+{% endif %}
+
+
+{% endblock mainContent%}

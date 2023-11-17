@@ -11,13 +11,9 @@
 
 <body>
     
-    {% block linkLogo%} 
-    <a href="../../" class="main-logo">
-    {% endblock linkLogo%}
+    <a href="{% url 'myapp-home'%}" class="main-logo">
 
-    {% block linkMainMenu %}
-    <li><a href='../../'>Home</a></li>
-    {% endblock linkMainMenu %}
+    <li><a href="{% url 'myapp-home'%}">Home</a></li>
 
 {% block mainContent %}
 <div id="main-content-container">

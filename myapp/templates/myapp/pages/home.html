@@ -20,29 +20,8 @@
 </head>
 
 <body>
-    <header class="heading">
-        <div class="container">
-            
-            {% block linkLogo %}
-            <a href="{% url "myapp-home" %}" class="main-logo">
-            {% endblock linkLogo %}
-
-                <span class="main-logo-text">ALUGA +</span>
-            </a>
-        </div>
-        
-        <nav class="main-menu">
-            <ul>
-
-                {% block linkMainMenu %}
-                <li><a href="{% url "myapp-home" %}"><i class="fa-solid fa-house"></i>Home</a></li>
-                {% endblock linkMainMenu %}
-                
-                <li><a href="#"><i class="fa-solid fa-user"></i> Login</a></li>
-                <li><a href="#"><i class="fa-solid fa-car"></i> Minhas reservas</a></li>
-            </ul>
-        </nav>
-    </header>
+    
+    {% include 'myapp/partials/navbar.html'%}
 
     {% block mainContent %}
    <main class="main-content-container">
