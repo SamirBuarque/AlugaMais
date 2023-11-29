@@ -1,3 +1,4 @@
+{% load static %}
 <!--GRUPO A-->
 <div class="list-item">
     <!--TITLE-->
@@ -7,7 +8,7 @@
     
     <!--IMAGE-->
     <div class="item-cover">
-        <img src="https://placehold.co/1280x720/03045E/png" alt="temporario">
+        <img src="{% static 'myapp/images/hatch_car.jpg' %}" alt="temporario">
     </div>
     
     <!--DESCRIPTION-->
@@ -17,7 +18,9 @@
 
     <!--PRICE-->
     <div class="card-price-container">
-        <span class="card-price">R$ 54,95 / dia</span>
+        <span class="card-price">
+            R$ 54,95 / dia
+        </span>
     </div>
 
     <!--DETAILS-->
@@ -44,7 +47,7 @@
         <h2 class="card-title">Grupo B</h2>
     </div>
     <div class="item-cover">
-        <img src="https://placehold.co/1280x720/03045E/png" alt="temporario">
+        <img src="{% static 'myapp/images/sedan_car.jpg' %}" alt="temporario">
     </div>
     <!--DESCRIPTION-->
     <div class="card-description">
@@ -80,7 +83,7 @@
         <h2 class="card-title">Grupo C</h2>
     </div>
     <div class="item-cover">
-        <img src="https://placehold.co/1280x720/03045E/png" alt="temporario">
+        <img src="{% static 'myapp/images/suv_car.jpg' %}" alt="temporario">
     </div>
     <!--DESCRIPTION-->
     <div class="card-description">
@@ -106,6 +109,6 @@
 
     <!--CARD-FOOTER-->
     <footer class="card-footer">
-        <a class="card-footer-button" href="{% url 'myapp-finalpage' 'grupoC' %}">Escolher</a>
+        <a class="card-footer-button" href="{% url 'myapp-finalpage' 'grupoC'%}">Escolher</a>
     </footer>
 </div>

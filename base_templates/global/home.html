@@ -27,6 +27,7 @@
     
     {% include 'myapp/partials/navbar.html'%}
 
+    {% block messages %}
     <!-- EXIBINDO AS MENSAGENS -->
     {% if messages %}
         {% for message in messages %}
@@ -36,6 +37,8 @@
             </div>
         {% endfor %}
     {% endif %}
+    <!-- FIM DAS MENSAGENS -->
+    {% endblock messages %}
 
     {% block mainContent %}
    <main class="main-content-container">

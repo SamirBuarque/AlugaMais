@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-
+from .forms import sign_up_form
 
 def login_user(request):
     # Verificando se o usuario esta logado:
@@ -16,11 +16,11 @@ def login_user(request):
         if user is not None:
             login(request, user)
             messages.success(request, 'Login feito com sucesso!')
-            return render(request, 'global/home.html', {})
+            return redirect('myapp-home')
         
         else:
             messages.error(request, 'Houve uma falha na autenticação. Tente novamente.')
-            return render(request, 'clients/pages/login_user.html', {})
+            return redirect('myapp-home')
 
     else:
         return render(request, 'clients/pages/login_user.html', {})
@@ -29,8 +29,30 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, 'Logout feito com sucesso!')
-    return render(request, 'global/home.html')
+    return redirect('myapp-home')
 
 
 def register_user(request):
-    return render(request, 'clients/pages/register_user.html')
+    if request.method == 'POST':
+        form = sign_up_form(request.POST)
+        if form.is_valid():
+            form.save()
+
+            #Autenticação e login ----------
+            
+            # Esse método pega o que o usuário digitou no campo do formulário
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            
+            login(request, user)
+            messages.success(request, 'Usuário cadastrado com sucesso!')
+            return render(request, 'global/home.html')
+
+        else:
+            messages.error(request, 'Falha ao cadastrar o usuário.')
+            return redirect('myapp-home')
+    
+    else:
+        form = sign_up_form()
+        return render(request, 'clients/pages/register_user.html', {'form':form})
